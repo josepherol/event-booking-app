@@ -1,6 +1,16 @@
 import mongoose from "mongoose";
 
 const eventSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User", // Reference to the User who created the event
+    required: true,
+  },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -12,11 +22,6 @@ const eventSchema = new mongoose.Schema({
     required: true,
     trim: true,
     maxlength: 1000,
-  },
-  createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User", // Reference to the User who created the event
-    required: true,
   },
   date: {
     type: Date,
@@ -59,40 +64,29 @@ const eventSchema = new mongoose.Schema({
       default: [],
     },
   ],
-  tags: {
-    type: [String], // Array of tags for categorizing the event
-    default: [],
-  },
-  category: {
-    type: String,
-    required: true,
-    enum: [
-      "Konser",
-      "Tiyatro",
-      "Şehir Turu",
-      "Speaking Clup",
-      "Motor Gezisi",
-      "Bisiklet Gezisi",
-    ],
-  },
   isDeleted: {
     type: Boolean,
+    required: true,
     default: false,
   },
   isActive: {
     type: Boolean,
+    required: true,
     default: true,
   },
   isOutdated: {
     type: Boolean,
+    required: true,
     default: false,
   },
   createdAt: {
     type: Date,
+    required: true,
     default: Date.now,
   },
   updatedAt: {
     type: Date,
+    required: true,
     default: Date.now,
   },
 });
@@ -119,4 +113,5 @@ eventSchema.pre("findOneAndUpdate", function (next) {
   update.updatedAt = Date.now();
   next();
 });
+
 export default mongoose.model("Event", eventSchema);

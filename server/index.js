@@ -22,7 +22,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/event", eventRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Mern Auth, Yeey!");
+  res.send("Event App, Yeey!");
 });
 
 const PORT = process.env.PORT;
