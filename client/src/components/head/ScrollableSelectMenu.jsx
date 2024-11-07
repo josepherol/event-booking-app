@@ -1,12 +1,18 @@
 import { useState } from "react";
 
-const ScrollableSelectMenu = ({ type, selectedOption, onSelect }) => {
+const ScrollableSelectMenu = ({
+  type,
+  selectedOption,
+  onSelect,
+  width = 64,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Options based on the type of select menu
   const options =
     type === "city"
       ? [
+          "Tüm Şehirler",
           "İstanbul",
           "Ankara",
           "İzmir",
@@ -18,7 +24,7 @@ const ScrollableSelectMenu = ({ type, selectedOption, onSelect }) => {
           "Trabzon",
           "Eskişehir",
         ]
-      : ["Bugün", "Yarın", "Bu Hafta", "Bu Ay"];
+      : ["Tüm Tarihler", "Bugün", "Yarın", "Bu Hafta", "Bu Ay", "Sonraki Ay"];
 
   const handleSelect = (option) => {
     onSelect(option); // Update parent component's state
@@ -26,17 +32,17 @@ const ScrollableSelectMenu = ({ type, selectedOption, onSelect }) => {
   };
 
   return (
-    <div className="relative w-64">
-      <label
+    <div className={`relative w-${width}`}>
+      {/* <label
         htmlFor="select"
         className="block text-sm font-semibold text-primary-600 mb-1"
       >
         {type === "city" ? "Şehir Seç" : "Tarih Seç"}
-      </label>
+      </label> */}
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-2 border border-gray-300 rounded-md text-left focus:outline-none focus:ring-2 focus:ring-primary-600"
+        className="w-full flex items-center justify-between p-2 border border-gray-300 rounded-sm text-left focus:outline-none focus:ring-2 focus:ring-primary-600"
       >
         {selectedOption}
         <svg
@@ -59,7 +65,7 @@ const ScrollableSelectMenu = ({ type, selectedOption, onSelect }) => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute mt-1 w-full max-h-40 border border-gray-300 rounded-md shadow-lg bg-white overflow-y-auto z-10">
+        <div className="absolute mt-1 w-full max-h-64 border border-gray-300 rounded-sm shadow-lg bg-white overflow-y-auto z-10">
           {options.map((option) => (
             <div
               key={option}

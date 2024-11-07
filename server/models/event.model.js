@@ -7,9 +7,20 @@ const eventSchema = new mongoose.Schema({
     required: true,
   },
   category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Category",
+    type: String,
     required: true,
+    enum: [
+      "Konser",
+      "Sinema",
+      "Tiyatro",
+      "Şehir Turu",
+      "Speaking Clup",
+      "Motor Gezisi",
+      "Bisiklet Gezisi",
+      "Sergi",
+      "Stand-Up",
+      "Festival",
+    ],
   },
   title: {
     type: String,
@@ -23,13 +34,18 @@ const eventSchema = new mongoose.Schema({
     trim: true,
     maxlength: 1000,
   },
+  verified: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
   date: {
     type: Date,
     required: true,
   },
   coverImg: {
     type: String,
-    default: "",
+    required: true,
   },
   eventImgs: {
     type: [String],

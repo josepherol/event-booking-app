@@ -19,8 +19,13 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       required: true,
-      enum: ["guest", "admin"],
+      enum: ["guest", "organizer", "admin"],
       default: "guest",
+    },
+    verified: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
     events: [
       // Created Events

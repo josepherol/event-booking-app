@@ -1,10 +1,13 @@
-import Head from "../../components/head/Head";
+import NavBar from "../../components/navbar/NavBar.jsx";
+import Footer from "../../components/footer/Footer.jsx";
 
-const HomeLayout = () => {
+const HomeLayout = ({ children }) => {
   return (
-    <div>
-      <Head />
-    </div>
+    <>
+      <NavBar />
+      {children}
+      <Footer />
+    </>
   );
 };
 
