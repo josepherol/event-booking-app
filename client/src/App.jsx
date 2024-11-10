@@ -5,6 +5,7 @@ import Home from "./pages/home/Home.jsx";
 import Login from "./pages/auth/login/Login.jsx";
 import Register from "./pages/auth/register/Register.jsx";
 import Details from "./pages/details/Details.jsx";
+import Create from "./pages/create/Create.jsx";
 
 import { Toaster } from "react-hot-toast";
 import Events from "./pages/events/Events.jsx";
@@ -57,10 +58,8 @@ function App() {
           path="/register"
           element={!authUser ? <Register /> : <Navigate to="/" />}
         />
-        <Route
-          path="/events"
-          element={<Events />}
-        />
+        <Route path="/events" element={<Events />} />
+        <Route path="/create" element={<Create />} />
         <Route path="/details/:eventId" element={<Details />} />
       </Routes>
       <Toaster />

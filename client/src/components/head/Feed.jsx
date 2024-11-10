@@ -9,7 +9,8 @@ const Feed = ({ eventUrl }) => {
 
   return (
     <div
-      className="max-w-sm bg-white border-2 border-gray-200 rounded-sm shadow-lg p-2 hover:border-primary-600 cursor-pointer transition"
+      className="max-w-sm bg-gray-50 p-2 rounded-sm shadow-md h-full overflow-hidden cursor-pointer"
+      // className="max-w-sm bg-white border-2 border-gray-200 rounded-sm shadow-lg p-2 hover:border-primary-600 cursor-pointer transition"
       onClick={handleClick}
     >
       {/* Event Image */}

@@ -1,6 +1,6 @@
 const NavBar = () => {
   const authUser = true;
-  const isOrganizer = false;
+  const isOrganizer = true;
 
   return (
     <div className="shadow-sm">

@@ -56,6 +56,11 @@ const eventSchema = new mongoose.Schema({
     default: "",
   },
   location: {
+    place: {
+      type: String,
+      required: true,
+      maxlength: 50,
+    },
     address: {
       type: String,
       required: true,

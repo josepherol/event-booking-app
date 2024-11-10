@@ -14,7 +14,8 @@ const CategoryAndSearch = () => {
   const handleApplyFilters = () => {
     // Create a filter string based on selected filters
     const filters = [];
-    if (selectedCategory.length > 0) filters.push(`category=${selectedCategory.join(",")}`);
+    if (selectedCategory.length > 0)
+      filters.push(`category=${selectedCategory.join(",")}`);
     if (selectedCity && selectedCity !== "Şehir seçin")
       filters.push(`city=${selectedCity}`);
     if (selectedDate && selectedDate !== "Tarih seçin")
@@ -26,10 +27,11 @@ const CategoryAndSearch = () => {
   };
 
   const toggleCategory = (categoryId) => {
-    setSelectedCategory((prevSelected) =>
-      prevSelected.includes(categoryId)
-        ? prevSelected.filter((id) => id !== categoryId) // Deselect category
-        : [...prevSelected, categoryId] // Select category
+    setSelectedCategory(
+      (prevSelected) =>
+        prevSelected.includes(categoryId)
+          ? prevSelected.filter((id) => id !== categoryId) // Deselect category
+          : [...prevSelected, categoryId] // Select category
     );
   };
 
@@ -42,7 +44,7 @@ const CategoryAndSearch = () => {
             <div
               key={category.id}
               onClick={() => toggleCategory(category.id)}
-              className={`flex flex-col items-center justify-center m-3 p-2 sm:p-3 md:p-4 w-28 sm:w-32 md:w-36 lg:w-36 h-28 sm:h-32 md:h-36 lg:h-36 cursor-pointer shadow-md border-2 rounded-sm  transition hover:scale-105 hover:border-primary-600 ${
+              className={`flex flex-col items-center justify-center m-3 p-2 sm:p-3 md:p-4 w-28 sm:w-32 md:w-36 lg:w-36 h-28 sm:h-32 md:h-36 lg:h-36 cursor-pointer shadow-md border-2 rounded-sm transition hover:scale-105 hover:border-primary-600 ${
                 selectedCategory.includes(category.id)
                   ? "border-primary-600 scale-105"
                   : ""
@@ -80,7 +82,10 @@ const CategoryAndSearch = () => {
         selectedDate !== "Tarih seçin" ? (
           <div className="flex mt-4 border p-3 rounded-sm shadow-lg">
             {selectedCategory.map((categoryId) => (
-              <div key={categoryId} className="flex items-center bg-black bg-opacity-70 text-white text-sm font-medium px-3 py-1 rounded-sm mr-2">
+              <div
+                key={categoryId}
+                className="flex items-center bg-black bg-opacity-70 text-white text-sm font-medium px-3 py-1 rounded-sm mr-2"
+              >
                 <span>{categories.find((c) => c.id === categoryId).title}</span>
                 <span
                   onClick={() => toggleCategory(categoryId)}

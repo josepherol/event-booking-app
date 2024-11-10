@@ -4,7 +4,7 @@ const ScrollableSelectMenu = ({
   type,
   selectedOption,
   onSelect,
-  width = 64,
+  width = "16rem", // Default width, you can change this value
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,7 +32,7 @@ const ScrollableSelectMenu = ({
   };
 
   return (
-    <div className={`relative w-${width}`}>
+    <div style={{ width }} className="relative">
       {/* <label
         htmlFor="select"
         className="block text-sm font-semibold text-primary-600 mb-1"

@@ -20,7 +20,7 @@ const Featured = () => {
     <div className="flex flex-col items-center gap-6 py-12">
       {/* Event Image */}
       <div
-        className="w-full max-w-6xl h-96 lg:h-[30rem] overflow-hidden rounded-sm cursor-pointer border-2 border-gray-300 hover:border-primary-600 transition p-2"
+        className="w-full max-w-6xl lg:h-[30rem] overflow-hidden bg-gray-50 p-6 rounded-lg shadow-md cursor-pointer"
         onClick={handleClick}
       >
         <img
